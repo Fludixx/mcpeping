@@ -5,6 +5,10 @@ description = "Ping Minecraft: Bedrock Edition Servers"
 authors = ["fludixx <fludixs@protonmail.com>"]
 edition = "2018"
 
+[target.x86_64-pc-windows-gnu]
+linker = "/usr/bin/x86_64-w64-mingw32-gcc"
+ar = "/usr/x86_64-w64-mingw32/bin/ar"
+
 [dependencies]
 colorful = "0.2.1"
 clap = "2.33.0"

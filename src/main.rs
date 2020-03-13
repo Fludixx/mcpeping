@@ -1,10 +1,8 @@
 use crate::protocol::{OfflinePingPacket, OfflinePongPacket};
-use byteorder::{BigEndian, ReadBytesExt, WriteBytesExt};
 use clap::{App, Arg};
 use colorful::core::color_string::CString;
 use colorful::Colorful;
-use rand::{random, thread_rng, Rng};
-use std::io::{Cursor, Read, Write};
+use rand::random;
 use std::net::{IpAddr, SocketAddr, ToSocketAddrs, UdpSocket};
 use std::process::exit;
 use std::str::FromStr;
