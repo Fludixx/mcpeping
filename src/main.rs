@@ -53,6 +53,13 @@ fn main() {
                 .default_value("3"),
         )
         .arg(
+            Arg::with_name("interval")
+                .short("i")
+                .long("interval")
+                .takes_value(true)
+                .default_value("1000"),
+        )
+        .arg(
             Arg::with_name("loops")
                 .short("n")
                 .long("loops")
@@ -66,6 +73,7 @@ fn main() {
     }
     let server = parse_address(matches.value_of("server").unwrap());
     let timeout = u32::from_str(matches.value_of("timeout").unwrap());
+    let interval = u64::from_str(matches.value_of("interval").unwrap());
     if timeout.is_err() {
         println!("Invalid timeout provided.");
         exit(1);
@@ -76,6 +84,11 @@ fn main() {
         exit(1);
     }
     let server = server.unwrap();
+    if interval.is_err() {
+        println!("Invalid interval provided.");
+        exit(1);
+    }
+    let interval = interval.unwrap();
     let socket = UdpSocket::bind("0.0.0.0:0");
     if socket.is_err() {
         println!("Failed to bind");
@@ -143,7 +156,7 @@ fn main() {
                 }
             }
         }
-        thread::sleep(Duration::from_secs(1));
+        thread::sleep(Duration::from_millis(interval));
         looped += 1;
     }
 }
