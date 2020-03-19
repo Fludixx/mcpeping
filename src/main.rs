@@ -41,7 +41,7 @@ fn parse_address(addr: &str) -> Option<SocketAddr> {
 fn main() {
     let matches = App::new("Minecraft: Bedrock Edition Pinger")
         .version(clap::crate_version!())
-        .author(clap::crate_version!())
+        .author(clap::crate_authors!())
         .about(clap::crate_description!())
         .arg(Arg::with_name("server").help("Server to ping"))
         .arg(Arg::with_name("motd").short("m").long("motd"))
