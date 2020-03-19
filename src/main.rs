@@ -139,8 +139,8 @@ fn main() {
                 let delay_str: CString = match delay {
                     d if d < 5 => format!("{}ms", delay).light_green(),
                     d if d < 30 => format!("{}ms", delay).green(),
-                    d if d < 60 => format!("{}ms", delay).yellow(),
-                    d if d < 100 => format!("{}ms", delay).light_red(),
+                    d if d < 100 => format!("{}ms", delay).yellow(),
+                    d if d < 150 => format!("{}ms", delay).light_red(),
                     d if d < 500 => format!("{}ms", delay).red(),
                     _ => format!("{}ms", delay).magenta(),
                 };
